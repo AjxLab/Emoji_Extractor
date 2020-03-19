@@ -32,10 +32,10 @@ def scraping(doc, delay: 3, depth_limit: nil)
   puts
   puts "Dump to csv..."
   File.open('emoji.csv', 'w') do |f|
-    f.write()
     emoji_list.each do |row|
       f.write row.join(',')
     end
+    f.write("\n")
   end
 
   $logger.info('取得完了')
