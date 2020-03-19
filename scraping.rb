@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'csv'
 
 def webDL(link, file)
   ## -----*----- Webからダウンロード -----*----- ##
@@ -18,13 +19,25 @@ end
 
 def scraping(doc, delay: 3, depth_limit: nil)
   ## -----*----- スクレイピング -----*----- ##
+  list = doc.css('tr')
+  emoji_list = []
 
-  # DBにレコードを追加
-  # $model.<table>.create(col1: value, col2: value...)
+  mdap(list.length) { |i|
+    next  if list[i].css('.name').length==0
+    emoji = list[i].css('img').attr('alt')
+    name  = list[i].css('.name').inner_text.gsub(' ', '')
+    emoji_list << [emoji, name]
+  }
 
-  # メールにアラートを出す
-  # send_mail(to_address, subject, body)
+  puts
+  puts "Dump to csv..."
+  puts
+  File.open('emoji.csv', 'w') do |f|
+    f.write()
+    emoji_list.each do |row|
+      f.write row.join(',')
+    end
+  end
 
-  # ログ出力
-  # $logger.<level>('log text')
+  $logger.info('取得完了')
 end

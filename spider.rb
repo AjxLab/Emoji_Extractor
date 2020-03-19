@@ -6,7 +6,7 @@ require './mailer'
 
 
 START_TIME = Time.new
-URL = 'https://www.webfx.com/tools/emoji-cheat-sheet/'
+URL = 'https://unicode.org/emoji/charts/full-emoji-list.html'
 $logger = Logger.new('log/develop.log')
 $account = YAML.load_file('config/mail.yml')
 $model = Model.new(YAML.load_file('config/db.yml')['file'])
@@ -76,7 +76,7 @@ end
 
 
 if __FILE__ == $0
-  crawl(multi: false)
+  crawl(multi: false, echo_bar: false)
   footer_exit
 end
 

@@ -4,7 +4,7 @@ Spider
 [![](https://github.com/AjxLab/Emoji_Extractor/workflows/build/badge.svg)](https://github.com/AjxLab/Emoji_Extractor/actions)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-Spider of this [emoji list](https://moji.clock-up.jp/emoji/).
+Spider of this [emoji list](https://unicode.org/emoji/charts/full-emoji-list.html).
 
 
 ## Requirements
