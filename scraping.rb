@@ -34,8 +34,8 @@ def scraping(doc, delay: 3, depth_limit: nil)
   File.open('emoji.csv', 'w') do |f|
     emoji_list.each do |row|
       f.write row.join(',')
+      f.write("\n")
     end
-    f.write("\n")
   end
 
   $logger.info('取得完了')
