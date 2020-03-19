@@ -25,13 +25,12 @@ def scraping(doc, delay: 3, depth_limit: nil)
   mdap(list.length) { |i|
     next  if list[i].css('.name').length==0
     emoji = list[i].css('img').attr('alt')
-    name  = list[i].css('.name').inner_text.gsub(' ', '')
+    name  = list[i].css('.name').inner_text.gsub(' ', '_')
     emoji_list << [emoji, name]
   }
 
   puts
   puts "Dump to csv..."
-  puts
   File.open('emoji.csv', 'w') do |f|
     f.write()
     emoji_list.each do |row|
